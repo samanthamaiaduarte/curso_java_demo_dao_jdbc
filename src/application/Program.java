@@ -1,5 +1,6 @@
 package application;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -14,8 +15,8 @@ public class Program {
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		System.out.println("===== TEST 1 - seller findById =====");
-		Seller seller = sellerDao.findById(3);
-		System.out.println(seller);
+		Seller seller1 = sellerDao.findById(3);
+		System.out.println(seller1);
 		
 		System.out.println();
 		System.out.println("===== TEST 2 - seller findByDepartment =====");
@@ -26,6 +27,13 @@ public class Program {
 		System.out.println("===== TEST 3 - seller findAll =====");
 		List<Seller> sellers2 = sellerDao.findAll();
 		sellers2.forEach(System.out::println);
+		
+		System.out.println();
+		System.out.println("===== TEST 4 - seller insert =====");
+		Seller seller2 = new Seller(null, "Greg", "greg@gmail.com", LocalDate.of(1972, 5, 11), 3500.0, new Department(1, "Computers"));
+		sellerDao.insert(seller2);
+		System.out.println(seller2);
+		
 	}
 
 }
