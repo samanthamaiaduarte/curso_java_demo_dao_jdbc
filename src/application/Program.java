@@ -34,6 +34,11 @@ public class Program {
 		sellerDao.insert(seller2);
 		System.out.println(seller2);
 		
+		System.out.println();
+		System.out.println("===== TEST 4 - seller update =====");
+		seller2.setBirthDate(LocalDate.of(1986, 5, 22));
+		sellerDao.update(seller2);
+		System.out.println("Update completed!");
 	}
 
 }
